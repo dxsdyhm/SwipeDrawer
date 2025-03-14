@@ -1,12 +1,11 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.Leaqi'
 version='1.6'
 
 android {
+    namespace "cn.leaqi.drawer"
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 29

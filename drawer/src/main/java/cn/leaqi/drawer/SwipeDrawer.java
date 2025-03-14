@@ -26,6 +26,8 @@ import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
+import cn.leaqi.drawer.R;
+
 /**
  * SwipeDrawer is an layout class
  * Created by Leaqi.
@@ -1257,6 +1259,13 @@ public class SwipeDrawer extends ViewGroup {
         if (topLayout != null && ((isShow && inDirection == DIRECTION_TOP && shiftY < 0 && Math.abs(shiftY) > Math.abs(shiftX)) || (!isShow && topDragOpen && shiftY > Math.abs(shiftX)))) {
             int topRange = getDragRange(DIRECTION_TOP);
             if (topLayout.intercept && isScrollType(DIRECTION_TOP) && (isShow || topRange == 0 || topRange >= downY)) {
+                if(shiftY>0){
+                    if(downX>mainLayout.width/2){
+                        topLayout.setViewTag("right");
+                    }else{
+                        topLayout.setViewTag("left");
+                    }
+                }
                 return topLayout;
             }
         }

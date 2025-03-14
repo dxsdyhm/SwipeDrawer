@@ -1,36 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" style="@style/MainMatch">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainMatch">
 
     <include layout="@layout/top_bar" />
 
     <cn.leaqi.drawer.SwipeDrawer
-        style="@style/MainMatch"
         android:id="@+id/mainDrawer"
+        style="@style/MainMatch"
         android:layout_below="@+id/top_bar"
+        app:bottomLayout="@+id/Bottom"
+        app:leftLayout="@+id/Left"
         app:mainScroll="@+id/mainList"
         app:mask="gradual"
         app:maskClose="true"
-        app:leftLayout="@+id/Left"
-        app:topLayout="@+id/Top"
         app:rightLayout="@+id/Right"
-        app:bottomLayout="@+id/Bottom">
-        <TextView style="@style/MainText" android:layout_width="220dp" android:id="@+id/Left" android:background="#F44336" android:text="ListView\n\n外\n\nLeft" android:drawableRight="@mipmap/icon_right" />
-        <TextView style="@style/MainText" android:layout_height="220dp" android:id="@+id/Top" android:background="#E91E63" android:text="ListView\n\n外\n\nTop" android:drawableBottom="@mipmap/icon_bottom" />
-        <TextView style="@style/MainText" android:layout_width="220dp" android:id="@+id/Right" android:background="#9C27B0" android:text="ListView\n\n外\n\nRight" android:drawableLeft="@mipmap/icon_left" />
-        <TextView style="@style/MainText" android:layout_height="220dp" android:id="@+id/Bottom" android:background="#673AB7" android:text="ListView\n\n外\n\nBottom" android:drawableTop="@mipmap/icon_top" />
+        app:topLayout="@+id/Top">
+
+        <TextView
+            android:id="@+id/Left"
+            style="@style/MainText"
+            android:layout_width="220dp"
+            android:background="#F44336"
+            android:drawableRight="@mipmap/icon_right"
+            android:text="ListView\n\n外\n\nLeft" />
+
+        <cn.leaqi.drawer.ChangeViewGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/Top"
+            android:tag="left">
+
+            <TextView
+                android:id="@+id/Top_left"
+                style="@style/MainText"
+                android:tag="left"
+                android:layout_height="220dp"
+                android:background="#E91E63"
+                android:drawableBottom="@mipmap/icon_bottom"
+                android:text="Left" />
+
+            <TextView
+                android:id="@+id/Top_right"
+                style="@style/MainText"
+                android:layout_height="220dp"
+                android:tag="right"
+                android:background="#E91E63"
+                android:drawableBottom="@mipmap/icon_bottom"
+                android:text="Right" />
+
+        </cn.leaqi.drawer.ChangeViewGroup>
+
+        <TextView
+            android:id="@+id/Right"
+            style="@style/MainText"
+            android:layout_width="220dp"
+            android:background="#9C27B0"
+            android:drawableLeft="@mipmap/icon_left"
+            android:text="ListView\n\n外\n\nRight" />
+
+        <TextView
+            android:id="@+id/Bottom"
+            style="@style/MainText"
+            android:layout_height="220dp"
+            android:background="#673AB7"
+            android:drawableTop="@mipmap/icon_top"
+            android:text="ListView\n\n外\n\nBottom" />
+
         <RelativeLayout style="@style/MainMatch">
+
             <ListView
                 android:id="@+id/mainList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:animateLayoutChanges="true"
                 android:background="#ffffff" />
+
             <TextView
-                style="@style/MainText"
                 android:id="@+id/gesture"
+                style="@style/MainText"
                 android:drawableLeft="@mipmap/icon_left_black"
-                android:drawableRight="@mipmap/icon_right_black"
                 android:drawableTop="@mipmap/icon_top_black"
+                android:drawableRight="@mipmap/icon_right_black"
                 android:drawableBottom="@mipmap/icon_bottom_black" />
         </RelativeLayout>
     </cn.leaqi.drawer.SwipeDrawer>

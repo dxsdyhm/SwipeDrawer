@@ -163,4 +163,7 @@ class ViewUtils {
         return location;
     }
 
+    public void setViewTag(Object tag){
+        view.setTag(tag);
+    }
 }

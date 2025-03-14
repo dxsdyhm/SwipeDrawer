@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace "cn.leaqi.drawerapp"
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
