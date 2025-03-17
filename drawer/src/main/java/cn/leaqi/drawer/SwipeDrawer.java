@@ -173,6 +173,7 @@ public class SwipeDrawer extends ViewGroup {
     private OnDrawerSwitch onDrawerSwitch = null;
     private OnDrawerChange onDrawerChange = null;
     private Interpolator animInterpolator = null;
+    private float Top_Layout_Free = 0.84f;//上滑热区剩余区域
 
     public SwipeDrawer(Context context) {
         super(context);
@@ -1713,6 +1714,10 @@ public class SwipeDrawer extends ViewGroup {
                 getPointerId = ev.getPointerId(0);
                 cacheDrawer(true);
                 setParentIntercept(1, true);
+                if(isShow&&inDirection==DIRECTION_TOP&&downY>=Top_Layout_Free*mainLayout.height){
+                    isIntercept=true;
+                    return true;
+                }
                 if (isShow && mainOpen == MAIN_OPEN_INTERCEPT) {
                     if (maskView != null) {
                         requestIntercept();
