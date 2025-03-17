@@ -1034,6 +1034,10 @@ public class SwipeDrawer extends ViewGroup {
             if (mask == MASK_GENERAL) {
                 progressMask(0f);
             }
+            //防止滑动结束后继续滑动响应
+            if(type == DIRECTION_BOTTOM){
+                getPointerId=INVALID_POINTER;
+            }
         }
     }
 
